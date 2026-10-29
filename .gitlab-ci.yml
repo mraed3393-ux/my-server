@@ -1,0 +1,21 @@
+stages:
+  - test
+  - deploy
+
+# This job runs automatically on every commit/push
+run_tests:
+  stage: test
+  image: alpine:latest
+  script:
+    - echo "Running your automated tests here..."
+    - # Add your actual test commands (e.g., npm test, pytest, etc.)
+
+# This job only runs when you push to the main branch
+deploy_to_server:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "Deploying application to production server..."
+    - # Add your deployment scripts or SSH commands here
+  only:
+    - main
